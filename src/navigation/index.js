@@ -10,12 +10,12 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 
 import Home from "./screens/Home";
 import New from "./screens/Customers/New";
-import { routeNames, tabIconNames, titles } from "../utilities/constants";
-
-const { HOME, customers, REGIONS } = routeNames;
+import RegionsList from "./screens/Regions/List";
+import { regions, routeNames, tabIconNames, titles } from "../utilities/constants";
 
 const Tab = createBottomTabNavigator();
 const CustomerStack = createNativeStackNavigator();
+const RegionStack = createNativeStackNavigator();
 
 const CustomerStackScreen = () => {
     return (
@@ -31,6 +31,18 @@ const CustomerStackScreen = () => {
                 options={ { headerShown: false } }
             />
         </CustomerStack.Navigator>
+    );
+};
+
+const RegionStackScreen = () => {
+    return (
+        <RegionStack.Navigator initialRouteName={ routeNames.customers.CUSTOMERS_LIST }>
+            <RegionStack.Screen
+                name={ routeNames.regions.REGIONS_LIST }
+                component={ RegionsList }
+                options={ { headerShown: false } }
+            />
+        </RegionStack.Navigator>
     );
 };
 
@@ -50,7 +62,7 @@ const Navigation = () => {
                             case routeNames.customers.CUSTOMERS:
                                 iconName = focused ? customers.FOCUSED : customers.UNFOCUSED;
                                 break;
-                            case routeNames.REGIONS:
+                            case routeNames.regions.REGIONS:
                                 iconName = focused ? regions.FOCUSED : regions.UNFOCUSED;
                                 break;
                             case routeNames.customers.NEW_CUSTOMER:
@@ -66,23 +78,23 @@ const Navigation = () => {
                 }) }
             >
                 <Tab.Screen
-                    name={ HOME }
+                    name={ routeNames.HOME }
                     component={ Home }
                     options={ { title: titles.HOME } }
                 />
                 <Tab.Screen
-                    name={ customers.CUSTOMERS }
+                    name={ routeNames.customers.CUSTOMERS }
                     component={ CustomerStackScreen }
                 />
                 <Tab.Screen
-                    name={ REGIONS }
-                    component={ Home }
+                    name={ routeNames.regions.REGIONS }
+                    component={ RegionStackScreen }
                     options={ { title: titles.REGIONS } }
                 />
                 <Tab.Screen
-                    name={ customers.NEW_CUSTOMER }
+                    name={ routeNames.customers.NEW_CUSTOMER }
                     component={ New }
-                    options={ { title: "ADD" } }
+                    options={ { title: titles.ADD_CUSTOMER } }
                 />
             </Tab.Navigator>
         </NavigationContainer>

@@ -5,7 +5,10 @@ export const routeNames = {
         CUSTOMERS_LIST: "Customers List",
         NEW_CUSTOMER: "New Customer",
     },
-    REGIONS: "Regions",
+    regions: {
+        REGIONS: "Regions",
+        REGIONS_LIST: "Regions List",
+    },
 };
 
 export const tabIconNames = {
@@ -28,6 +31,7 @@ export const titles = {
     HOME: "My CRM",
     CUSTOMERS: "My Customers",
     REGIONS: "Regions",
+    ADD_CUSTOMER: "Add Customer",
 };
 
 export const keys = {
@@ -60,4 +64,9 @@ export const status = {
     REQUESTING: "REQUESTING",
     SUCCESS: "SUCCESS",
     ERROR: "ERROR",
+};
+
+export const listType = {
+    CUSTOMERS: "CUSTOMERS",
+    REGIONS: "REGIONS",
 };

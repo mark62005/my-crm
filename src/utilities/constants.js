@@ -27,3 +27,35 @@ export const titles = {
     CUSTOMERS: "My Customers",
     REGIONS: "Regions",
 };
+
+export const keys = {
+    CUSTOMERS: "CUSTOMERS_KEY",
+    REGIONS: "REGIONS_KEY",
+};
+
+export const regions = {
+    NORTH_AMERICA: {
+        id: "NA",
+        name: "North America",
+    },
+    ASIA: {
+        id: "AS",
+        name: "Asia",
+    },
+    EUROPE: {
+        id: "EU",
+        name: "Europe",
+    },
+    REST_OF_WORLD: {
+        id: "ROW",
+        name: "Rest of The World",
+    },
+};
+
+export const status = {
+    PENDING: "PENDING",
+    INPROGRESS: "INPROGRESS",
+    REQUESTING: "REQUESTING",
+    SUCCESS: "SUCCESS",
+    ERROR: "ERROR",
+};

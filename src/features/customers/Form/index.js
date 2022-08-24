@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { useNavigation } from "@react-navigation/native";
 import { View, Text, TextInput } from "react-native";
 import { useUpdateFields, useListRegions } from "../hooks";
@@ -8,7 +9,7 @@ import { status } from "../../../utilities/helpers";
 import Button from "../../../components/Button";
 import stylesFn from "./styles";
 
-const Form = ({ handleSubmit, status, customerID }) => {
+const Form = ({ handleSubmit, currentStatus, customerID }) => {
     const styles = stylesFn();
     const { navigate } = useNavigation();
     const {
@@ -100,7 +101,7 @@ const Form = ({ handleSubmit, status, customerID }) => {
 
                 <View style={ { height: 15, width: "100%" } }></View>
                 <Text>Region:</Text>
-                <SelectDropdown
+                {/* <SelectDropdown
                     data={ regions }
                     defaultValue={ region || "" }
                     onSelect={ (selectedItem, index) => {
@@ -128,7 +129,7 @@ const Form = ({ handleSubmit, status, customerID }) => {
                     dropdownStyle={ styles.dropdown1DropdownStyle }
                     rowStyle={ styles.dropdown1RowStyle }
                     rowTextStyle={ styles.dropdown1RowTxtStyle }
-                />
+                /> */}
 
                 <Button
                     onPress={ onSubmit }
@@ -139,12 +140,18 @@ const Form = ({ handleSubmit, status, customerID }) => {
                         email === null ||
                         mobile === null ||
                         region === null ||
-                        (status !== PENDING && status !== INPROGRESS)
+                        (currentStatus !== PENDING && currentStatus !== INPROGRESS)
                     }
                 />
             </View>
         </View>
     );
+};
+
+Form.propTypes = {
+    handleSubmit: PropTypes.func.isRequired,
+    currentStatus: PropTypes.string.isRequired,
+    customerID: PropTypes.string,
 };
 
 export default Form;

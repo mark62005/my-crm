@@ -9,21 +9,21 @@ const stylesFn = () => {
             height: "100%",
             width: "100%",
         },
-        dropdown1BtnStyle: {
-            width: "auto",
-            height: 50,
-            backgroundColor: "#FFF",
-            borderRadius: 8,
+        input: {
             borderWidth: 1,
-            borderColor: "#444",
+            borderColor: "black",
+            borderRadius: 4,
+            padding: 15,
         },
-        dropdown1BtnTxtStyle: { color: "#444", textAlign: "left" },
-        dropdown1DropdownStyle: { backgroundColor: "#EFEFEF" },
-        dropdown1RowStyle: {
-            backgroundColor: "#EFEFEF",
-            borderBottomColor: "#C5C5C5",
+        spacing: {
+            height: 15,
+            width: "100%",
         },
-        dropdown1RowTxtStyle: { color: "#444", textAlign: "left" },
+        accordian: {
+            width: "80%",
+            display: "flex",
+            flexDirection: "row",
+        }
     };
 
     return StyleSheet.create(styles);

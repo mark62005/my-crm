@@ -3,7 +3,7 @@ import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView, ScrollView, View } from "react-native";
 import Button from "../../../components/Button";
 import Title from "../../../components/Title";
-import { titles } from "../../../utilities/constants";
+import { routeNames, titles } from "../../../utilities/constants";
 import stylesFn from "./styles";
 
 const Home = () => {
@@ -17,7 +17,7 @@ const Home = () => {
                     <Title text={ `Welcome to ${titles.HOME}` } />
 
                     <Button
-                        onPress={ () => navigate("Add Customer") }
+                        onPress={ () => navigate(routeNames.customers.NEW_CUSTOMER) }
                         text="Create Customer"
                         disabled={ false }
                     />

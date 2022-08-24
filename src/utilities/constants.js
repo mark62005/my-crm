@@ -2,7 +2,8 @@ export const routeNames = {
     HOME: "Home",
     customers: {
         CUSTOMERS: "Customers",
-        CUSTOMERS_LIST: "CustomersList",
+        CUSTOMERS_LIST: "Customers List",
+        NEW_CUSTOMER: "New Customer",
     },
     REGIONS: "Regions",
 };
@@ -16,6 +17,7 @@ export const tabIconNames = {
         FOCUSED: "ios-person-sharp",
         UNFOCUSED: "ios-person-outline",
     },
+    NEW_CUSTOMER: "ios-add",
     regions: {
         FOCUSED: "ios-earth-sharp",
         UNFOCUSED: "ios-earth-outline",
@@ -34,10 +36,6 @@ export const keys = {
 };
 
 export const regions = {
-    NORTH_AMERICA: {
-        id: "NA",
-        name: "North America",
-    },
     ASIA: {
         id: "AS",
         name: "Asia",
@@ -45,6 +43,10 @@ export const regions = {
     EUROPE: {
         id: "EU",
         name: "Europe",
+    },
+    NORTH_AMERICA: {
+        id: "NA",
+        name: "North America",
     },
     REST_OF_WORLD: {
         id: "ROW",

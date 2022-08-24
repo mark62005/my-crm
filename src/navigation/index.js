@@ -9,6 +9,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 import Home from "./screens/Home";
+import New from "./screens/Customers/New";
 import { routeNames, tabIconNames, titles } from "../utilities/constants";
 
 const { HOME, customers, REGIONS } = routeNames;
@@ -24,6 +25,11 @@ const CustomerStackScreen = () => {
                 component={ Home }
                 options={ { headerShown: false } }
             />
+            <CustomerStack.Screen
+                name={ routeNames.customers.NEW_CUSTOMER }
+                component={ New }
+                options={ { headerShown: false } }
+            />
         </CustomerStack.Navigator>
     );
 };
@@ -34,7 +40,7 @@ const Navigation = () => {
             <Tab.Navigator
                 screenOptions={ ({ route }) => ({
                     tabBarIcon: ({ focused, size, color }) => {
-                        const { home, customers, regions } = tabIconNames;
+                        const { home, customers, regions, NEW_CUSTOMER } = tabIconNames;
 
                         let iconName;
                         switch (route.name) {
@@ -46,6 +52,9 @@ const Navigation = () => {
                                 break;
                             case routeNames.REGIONS:
                                 iconName = focused ? regions.FOCUSED : regions.UNFOCUSED;
+                                break;
+                            case routeNames.customers.NEW_CUSTOMER:
+                                iconName = NEW_CUSTOMER;
                                 break;
                             default:
                                 iconName = "";
@@ -69,6 +78,11 @@ const Navigation = () => {
                     name={ REGIONS }
                     component={ Home }
                     options={ { title: titles.REGIONS } }
+                />
+                <Tab.Screen
+                    name={ customers.NEW_CUSTOMER }
+                    component={ New }
+                    options={ { title: "ADD" } }
                 />
             </Tab.Navigator>
         </NavigationContainer>

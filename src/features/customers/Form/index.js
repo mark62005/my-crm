@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useNavigation } from "@react-navigation/native";
-import { View, Text, TextInput } from "react-native";
-import { useUpdateFields, useListRegions } from "../hooks";
-import SelectDropdown from "react-native-select-dropdown";
-import FontAwesome from "react-native-vector-icons/FontAwesome";
-import { status } from "../../../utilities/helpers";
-import Button from "../../../components/Button";
+import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import { Picker } from "@react-native-picker/picker";
+import { ButtonGroup, ListItem, Icon, Button } from "@rneui/themed";
+import { useUpdateFields } from "../hooks";
+import { status, regions } from "../../../utilities/constants";
+import MyButton from "../../../components/Button";
 import stylesFn from "./styles";
 
 const Form = ({ handleSubmit, currentStatus, customerID }) => {
+    const [ expanded, setExpanded ] = useState(false);
+
     const styles = stylesFn();
     const { navigate } = useNavigation();
     const {
@@ -20,7 +22,6 @@ const Form = ({ handleSubmit, currentStatus, customerID }) => {
         ERROR
     } = status;
     const { fields, setFormField } = useUpdateFields(customerID);
-    const regions = useListRegions();
 
     const {
         first_name,
@@ -29,6 +30,10 @@ const Form = ({ handleSubmit, currentStatus, customerID }) => {
         mobile,
         region
     } = fields;
+
+    const handleRegionBtnPress = (props) => {
+        console.log(props);
+    };
 
     const onSubmit = () => {
         handleSubmit();
@@ -42,104 +47,85 @@ const Form = ({ handleSubmit, currentStatus, customerID }) => {
                 <TextInput
                     key={ "first_name" }
                     placeholder={ first_name || "First Name" }
-                    value={ first_name || "" }
-                    style={ {
-                        borderWidth: 1,
-                        borderColor: "black",
-                        borderRadius: 4,
-                        padding: 15,
-                    } }
+                    value={ first_name }
+                    style={ styles.input }
                     onChangeText={ (value) => setFormField("first_name", value) }
                 />
 
-                <View style={ { height: 15, width: "100%" } }></View>
+                <View style={ styles.spacing }></View>
 
                 <Text>Last Name:</Text>
 
                 <TextInput
                     key={ "last_name" }
                     placeholder={ last_name || "Last Name" }
-                    value={ last_name || "" }
-                    style={ {
-                        borderWidth: 1,
-                        borderColor: "black",
-                        borderRadius: 4,
-                        padding: 15,
-                    } }
+                    value={ last_name }
+                    style={ styles.input }
                     onChangeText={ (value) => setFormField("last_name", value) }
                 />
 
-                <View style={ { height: 15, width: "100%" } }></View>
+                <View style={ styles.spacing }></View>
                 <Text>Email Address:</Text>
                 <TextInput
                     key={ "email" }
                     placeholder={ email || "Email Address" }
-                    value={ email || "" }
-                    style={ {
-                        borderWidth: 1,
-                        borderColor: "black",
-                        borderRadius: 4,
-                        padding: 15,
-                    } }
+                    value={ email }
+                    style={ styles.input }
+                    keyboardType="email-address"
                     onChangeText={ (value) => setFormField("email", value) }
                 />
 
-                <View style={ { height: 15, width: "100%" } }></View>
+                <View style={ styles.spacing }></View>
                 <Text>Mobile Number:</Text>
                 <TextInput
                     key={ "mobile" }
                     placeholder={ mobile || "Mobile Number" }
-                    value={ mobile || "" }
-                    style={ {
-                        borderWidth: 1,
-                        borderColor: "black",
-                        borderRadius: 4,
-                        padding: 15,
-                    } }
-                    onChangeText={ (v) => setFormField("mobile", v) }
+                    value={ mobile }
+                    style={ styles.input }
+                    keyboardType="phone-pad"
+                    onChangeText={ (value) => setFormField("mobile", value) }
                 />
 
-                <View style={ { height: 15, width: "100%" } }></View>
-                <Text>Region:</Text>
-                {/* <SelectDropdown
-                    data={ regions }
-                    defaultValue={ region || "" }
-                    onSelect={ (selectedItem, index) => {
-                        setFormField("region", selectedItem.name);
+                <View style={ styles.spacing }></View>
+                <ListItem.Accordion
+                    content={
+                        <View style={ styles.accordian }>
+                            <Icon name="ios-earth" type="ionicon" size={ 30 } style={ { marginEnd: 10 } } />
+                            <ListItem.Content style={ {} }>
+                                <ListItem.Title>Region</ListItem.Title>
+                            </ListItem.Content>
+                        </View>
+                    }
+                    isExpanded={ expanded }
+                    onPress={ () => {
+                        setExpanded(!expanded);
                     } }
-                    defaultButtonText={ region || "Select Region" }
-                    buttonTextAfterSelection={ (selectedItem, index) => {
-                        return selectedItem.name;
-                    } }
-                    rowTextForSelection={ (item, index) => {
-                        return item.name;
-                    } }
-                    buttonStyle={ styles.dropdown1BtnStyle }
-                    buttonTextStyle={ styles.dropdown1BtnTxtStyle }
-                    renderDropdownIcon={ (isOpened) => {
-                        return (
-                            <FontAwesome
-                                name={ isOpened ? "chevron-up" : "chevron-down" }
-                                color={ "#444" }
-                                size={ 18 }
-                            />
-                        );
-                    } }
-                    dropdownIconPosition={ "right" }
-                    dropdownStyle={ styles.dropdown1DropdownStyle }
-                    rowStyle={ styles.dropdown1RowStyle }
-                    rowTextStyle={ styles.dropdown1RowTxtStyle }
-                /> */}
 
-                <Button
+                >
+                    <Picker
+                        selectedValue={ region }
+                        onValueChange={ (value) => setFormField("region", value) }
+                    >
+                        {
+                            Object.values(regions).map((region) => (
+                                <Picker.Item
+                                    key={ region.id }
+                                    label={ region.name }
+                                    value={ region.id }
+                                />
+                            ))
+                        }
+                    </Picker>
+                </ListItem.Accordion>
+
+                <MyButton
                     onPress={ onSubmit }
-                    text="Submit"
+                    text="Add"
                     disabled={
-                        first_name === null ||
-                        last_name === null ||
-                        email === null ||
-                        mobile === null ||
-                        region === null ||
+                        first_name === "" ||
+                        last_name === "" ||
+                        email === "" ||
+                        mobile === "" ||
                         (currentStatus !== PENDING && currentStatus !== INPROGRESS)
                     }
                 />

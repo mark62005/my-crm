@@ -8,7 +8,7 @@ const stylesFn = ({ disabled = false }) => {
         backgroundColor = "grey";
         color = "black";
     } else {
-        backgroundColor = "green";
+        backgroundColor = "blue";
         color = "white";
     }
 

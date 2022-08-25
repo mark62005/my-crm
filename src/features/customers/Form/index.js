@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useLayoutEffect } from "react";
 import PropTypes from "prop-types";
 import { useNavigation } from "@react-navigation/native";
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import { View, Text, TextInput, Button } from "react-native";
 import { Picker } from "@react-native-picker/picker";
-import { ButtonGroup, ListItem, Icon, Button } from "@rneui/themed";
+import { ListItem, Icon } from "@rneui/themed";
 import { useUpdateFields } from "../hooks";
 import { status, regions, routeNames } from "../../../utilities/constants";
 import MyButton from "../../../components/Button";
@@ -13,7 +13,7 @@ const Form = ({ handleSubmit, currentStatus, customerID }) => {
     const [ expanded, setExpanded ] = useState(false);
 
     const styles = stylesFn();
-    const { navigate } = useNavigation();
+    const { navigate, setOptions } = useNavigation();
     const {
         PENDING,
         INPROGRESS,
@@ -30,6 +30,31 @@ const Form = ({ handleSubmit, currentStatus, customerID }) => {
         mobile,
         region
     } = fields;
+
+    useLayoutEffect(() => {
+        setOptions({
+            headerRight: () => (
+                <Button
+                    onPress={ onSubmit }
+                    title="Add"
+                    disabled={
+                        first_name === "" ||
+                        last_name === "" ||
+                        email === "" ||
+                        mobile === "" ||
+                        (currentStatus !== PENDING && currentStatus !== INPROGRESS)
+                    }
+                />
+            ),
+        });
+    }, [
+        setOptions,
+        first_name,
+        last_name,
+        email,
+        mobile,
+        currentStatus
+    ]);
 
     const handleRegionBtnPress = (props) => {
         console.log(props);

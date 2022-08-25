@@ -6,7 +6,8 @@ const stylesFn = () => {
             backgroundColor: "#fff",
             alignItems: "center",
             height: "100%",
-            padding: 20,
+            width: "100%",
+            padding: 5,
         },
         button: {
             width: 200,
@@ -20,6 +21,12 @@ const stylesFn = () => {
         buttonText: {
             color: "white",
         },
+        section: {
+            width: "100%",
+            marginTop: 10,
+            marginBottom: 20,
+            alignItems: "center",
+        },
         row: {
             borderWidth: 1,
             borderRadius: 10,
@@ -30,7 +37,17 @@ const stylesFn = () => {
         title: {
             fontSize: 20,
             fontWeight: "bold",
+            marginBottom: 5,
+        },
+        subTitle: {
+            fontSize: 16,
+            fontWeight: "semi-bold",
+            marginTop: 5,
             marginBottom: 3,
+        },
+        spacing: {
+            height: 15,
+            width: "100%",
         },
     };
 

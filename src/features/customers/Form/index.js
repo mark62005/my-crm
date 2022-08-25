@@ -151,7 +151,7 @@ const Form = ({ handleSubmit, currentStatus, customerID }) => {
                         last_name === "" ||
                         email === "" ||
                         mobile === "" ||
-                        (currentStatus !== PENDING && currentStatus !== INPROGRESS)
+                        currentStatus !== PENDING
                     }
                 />
             </View>

@@ -4,14 +4,11 @@ import { useNavigation } from "@react-navigation/native";
 import { useSelector } from "react-redux";
 import stylesFn from "./styles";
 import { routeNames } from "../../../utilities/constants";
+import Title from "../../../components/Title";
 
 const Row = ({ customer }) => {
     const styles = stylesFn();
     const { navigate } = useNavigation();
-    const region = useSelector((state) => {
-        const regions = state.regions.list.regions;
-        return Object.values(regions).find((r) => r.id === customer.region)[ "name" ];
-    });
 
     const handlePress = () => {
         // TODO: Edit Customer
@@ -20,7 +17,7 @@ const Row = ({ customer }) => {
     };
 
     return (
-        <View key={ customer.id } style={ styles.row }>
+        <View style={ styles.row }>
             <TouchableOpacity
                 onPress={ handlePress }
             >

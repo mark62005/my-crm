@@ -5,6 +5,8 @@ import { useSelector } from "react-redux";
 import { useListCustomers } from "../hooks";
 import { routeNames } from "../../../utilities/constants";
 import Row from "./row";
+import Section from "./section";
+import Title from "../../../components/Title";
 import MyButton from "../../../components/Button";
 import stylesFn from "./styles";
 
@@ -16,6 +18,7 @@ const List = () => {
     // const region = useSelector((state) =>
     //     state.customers.list.regions.find((r) => r.id === regionID)
     // );
+    const regions = useSelector((state) => state.regions.list.regions);
     const allCustomers = useListCustomers();
     console.log("in list ::: ", allCustomers);
 
@@ -33,22 +36,25 @@ const List = () => {
 
     return (
         <View style={ styles.container }>
-            { allCustomers && Object.keys(allCustomers).length > 0 ? (
-                Object.values(allCustomers).map((customer) => (
-                    <Row key={ customer.id } customer={ customer } />
-                ))
-            ) : (
-                <>
-                    <Text>{ "No customers yet!" }</Text>
-                    <MyButton
-                        text={ routeNames.customers.NEW_CUSTOMER }
-                        onPress={ () => {
-                            navigate(routeNames.customers.NEW_CUSTOMER);
-                        } }
-                        disabled={ false }
-                    />
-                </>
-            ) }
+            {
+                allCustomers && Object.keys(allCustomers).length > 0 ? (
+
+                    Object.values(regions).map((region) => {
+                        const customersByRegion =
+                            Object.values(allCustomers).filter(
+                                (c) => c.region === region.id
+                            );
+
+                        return <Section
+                            key={ region.id }
+                            customersByRegion={ customersByRegion }
+                            region={ region }
+                        />;
+                    })
+                ) : (
+                    null
+                )
+            }
         </View>
     );
 };

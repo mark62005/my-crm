@@ -1,6 +1,8 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
+import { useDispatch } from "react-redux";
 import { SafeAreaView, ScrollView, View } from "react-native";
+import { clearCustomers } from "../../../features/customers/reducers";
 import Button from "../../../components/Button";
 import Title from "../../../components/Title";
 import { routeNames, titles } from "../../../utilities/constants";
@@ -9,6 +11,7 @@ import stylesFn from "./styles";
 const Home = () => {
     const styles = stylesFn();
     const { navigate } = useNavigation();
+    const dispatch = useDispatch();
 
     return (
         <SafeAreaView>
@@ -35,10 +38,7 @@ const Home = () => {
                     />
 
                     <Button
-                        onPress={ () => {
-                            // TODO: Clear data
-                            console.log("CLEAR DATA BUTTON TAPPED");
-                        } }
+                        onPress={ () => dispatch(clearCustomers()) }
                         text="Clear Data"
                         disabled={ false }
                     />

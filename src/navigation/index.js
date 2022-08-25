@@ -12,6 +12,7 @@ import Home from "./screens/Home";
 import New from "./screens/Customers/New";
 import Edit from "./screens/Customers/Edit";
 import CustomerList from "./screens/Customers/List";
+import CustomerListByRegion from "./screens/Customers/ListByRegion";
 
 import RegionsList from "./screens/Regions/List";
 import { regions, routeNames, tabIconNames, titles } from "../utilities/constants";
@@ -39,17 +40,25 @@ const CustomerStackScreen = () => {
                 component={ Edit }
                 options={ { headerBackTitle: "Cancel" } }
             />
+            <RegionStack.Screen
+                name={ routeNames.customers.LIST_BY_REGION }
+                component={ CustomerListByRegion }
+            />
         </CustomerStack.Navigator>
     );
 };
 
 const RegionStackScreen = () => {
     return (
-        <RegionStack.Navigator initialRouteName={ routeNames.customers.CUSTOMERS_LIST }>
+        <RegionStack.Navigator initialRouteName={ routeNames.regions.REGIONS_LIST }>
             <RegionStack.Screen
                 name={ routeNames.regions.REGIONS_LIST }
                 component={ RegionsList }
-                options={ { headerShown: false } }
+                options={ { title: titles.REGIONS } }
+            />
+            <RegionStack.Screen
+                name={ routeNames.customers.LIST_BY_REGION }
+                component={ CustomerListByRegion }
             />
         </RegionStack.Navigator>
     );
@@ -99,7 +108,7 @@ const Navigation = () => {
                 <Tab.Screen
                     name={ routeNames.regions.REGIONS }
                     component={ RegionStackScreen }
-                    options={ { title: titles.REGIONS } }
+                    options={ { headerShown: false } }
                 />
                 <Tab.Screen
                     name={ routeNames.customers.NEW_CUSTOMER }

@@ -1,9 +1,8 @@
 import React from "react";
 import { View, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { useSelector } from "react-redux";
 import { useListRegions } from "../hooks";
-import Row from "./Row";
+import Row from "./row";
 import Button from "../../../components/Button";
 import stylesFn from "./styles";
 

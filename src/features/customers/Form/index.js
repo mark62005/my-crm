@@ -46,6 +46,7 @@ const Form = ({ handleSubmit, currentStatus, customerID }) => {
                     }
                 />
             ),
+            headerBackTitle: "Back",
         });
     }, [
         setOptions,
@@ -55,10 +56,6 @@ const Form = ({ handleSubmit, currentStatus, customerID }) => {
         mobile,
         currentStatus
     ]);
-
-    const handleRegionBtnPress = (props) => {
-        console.log(props);
-    };
 
     const onSubmit = () => {
         handleSubmit();

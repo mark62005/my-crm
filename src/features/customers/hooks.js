@@ -58,7 +58,15 @@ export const useEditCustomerStatus = () => {
 };
 
 export const useListCustomers = (regionID = null) => {
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(actions.loadCustomers());
+    }, [ dispatch ]);
+
     if (regionID === null) {
         return useSelector((state) => state.customers.list.customers);
     }
+
+    const customers = useSelector((state) => state.customers.list.customers);
+    return customers.filter((c) => c.region === regionID);
 };

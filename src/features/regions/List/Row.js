@@ -3,13 +3,14 @@ import PropTypes from "prop-types";
 import { View, Text, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import stylesFn from "./styles";
+import { routeNames } from "../../../utilities/constants";
 
 const Row = ({ region }) => {
     const styles = stylesFn();
     const { navigate } = useNavigation();
 
     const handlePress = () => {
-        console.log("Region pressed: ", region);
+        navigate(routeNames.customers.LIST_BY_REGION, { regionID: region.id });
     };
 
     return (

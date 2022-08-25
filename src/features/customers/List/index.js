@@ -52,7 +52,17 @@ const List = () => {
                         />;
                     })
                 ) : (
-                    null
+                    <View style={ styles.container }>
+                        <Text style={ styles.subTitle }>{ "No customers yet!" } </Text>
+
+                        <MyButton
+                            text={ routeNames.customers.NEW_CUSTOMER }
+                            onPress={ () => {
+                                navigate(routeNames.customers.NEW_CUSTOMER);
+                            } }
+                            disabled={ false }
+                        />
+                    </View>
                 )
             }
         </View>

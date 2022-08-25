@@ -3,6 +3,7 @@ export const routeNames = {
     customers: {
         CUSTOMERS: "Customers",
         CUSTOMERS_LIST: "Customers List",
+        LIST_BY_REGION: "List By Region",
         NEW_CUSTOMER: "New Customer",
         EDIT_CUSTOMER: "Edit Customer",
     },

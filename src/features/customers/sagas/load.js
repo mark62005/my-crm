@@ -13,6 +13,8 @@ export function* takeLoadCustomers() {
 
         yield delay(500);
 
+        yield get(keys.CUSTOMERS);
+
         yield put(actions.loadCustomersResult(customers));
     } catch (error) {
         yield put(actions.loadCustomersResult([]));

@@ -4,6 +4,7 @@ export const routeNames = {
         CUSTOMERS: "Customers",
         CUSTOMERS_LIST: "Customers List",
         NEW_CUSTOMER: "New Customer",
+        EDIT_CUSTOMER: "Edit Customer",
     },
     regions: {
         REGIONS: "Regions",

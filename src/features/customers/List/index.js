@@ -20,7 +20,6 @@ const List = () => {
     console.log("in list ::: ", allCustomers);
 
     useLayoutEffect(() => {
-        console.log("Component mounted");
         setOptions({
             headerRight: () => (
                 <Button

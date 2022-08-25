@@ -10,6 +10,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 
 import Home from "./screens/Home";
 import New from "./screens/Customers/New";
+import Edit from "./screens/Customers/Edit";
 import CustomerList from "./screens/Customers/List";
 
 import RegionsList from "./screens/Regions/List";
@@ -30,6 +31,11 @@ const CustomerStackScreen = () => {
                 name={ routeNames.customers.NEW_CUSTOMER }
                 component={ New }
                 options={ { headerBackTitle: "Back" } }
+            />
+            <CustomerStack.Screen
+                name={ routeNames.customers.EDIT_CUSTOMER }
+                component={ Edit }
+                options={ { headerBackTitle: "Cancel" } }
             />
         </CustomerStack.Navigator>
     );

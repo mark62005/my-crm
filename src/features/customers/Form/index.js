@@ -145,7 +145,7 @@ const Form = ({ handleSubmit, currentStatus, customerID }) => {
 
                 <MyButton
                     onPress={ onSubmit }
-                    text="Add"
+                    text="Save"
                     disabled={
                         first_name === "" ||
                         last_name === "" ||
@@ -162,7 +162,7 @@ const Form = ({ handleSubmit, currentStatus, customerID }) => {
 Form.propTypes = {
     handleSubmit: PropTypes.func.isRequired,
     currentStatus: PropTypes.string.isRequired,
-    customerID: PropTypes.string,
+    customerID: PropTypes.number,
 };
 
 export default Form;

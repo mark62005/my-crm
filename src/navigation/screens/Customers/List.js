@@ -4,7 +4,7 @@ import List from "../../../features/customers/List";
 
 const ListCustomers = () => (
     <SafeAreaView>
-        <ScrollView style={ { minHeight: "100%" } }>
+        <ScrollView>
             <List />
         </ScrollView>
     </SafeAreaView>

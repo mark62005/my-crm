@@ -21,16 +21,15 @@ const RegionStack = createNativeStackNavigator();
 
 const CustomerStackScreen = () => {
     return (
-        <CustomerStack.Navigator>
+        <CustomerStack.Navigator initialRouteName={ routeNames.customers.CUSTOMERS_LIST }>
             <CustomerStack.Screen
                 name={ routeNames.customers.CUSTOMERS_LIST }
                 component={ CustomerList }
-                options={ { headerShown: false } }
             />
             <CustomerStack.Screen
                 name={ routeNames.customers.NEW_CUSTOMER }
                 component={ New }
-                options={ { headerShown: false } }
+                options={ { headerBackTitle: "Back" } }
             />
         </CustomerStack.Navigator>
     );
@@ -87,6 +86,7 @@ const Navigation = () => {
                 <Tab.Screen
                     name={ routeNames.customers.CUSTOMERS }
                     component={ CustomerStackScreen }
+                    options={ { headerShown: false } }
                 />
                 <Tab.Screen
                     name={ routeNames.regions.REGIONS }

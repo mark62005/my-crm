@@ -36,7 +36,7 @@ const Form = ({ handleSubmit, currentStatus, customerID }) => {
             headerRight: () => (
                 <Button
                     onPress={ onSubmit }
-                    title="Add"
+                    title="Save"
                     disabled={
                         first_name === "" ||
                         last_name === "" ||

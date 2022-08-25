@@ -1,16 +1,16 @@
-import React from "react";
-import { View, Text } from "react-native";
+import React, { useLayoutEffect } from "react";
+import { View, Text, Button } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { useSelector } from "react-redux";
 import { useListCustomers } from "../hooks";
 import { routeNames } from "../../../utilities/constants";
 import Row from "./row";
-import Button from "../../../components/Button";
+import MyButton from "../../../components/Button";
 import stylesFn from "./styles";
 
 const List = () => {
     const styles = stylesFn();
-    const { navigate } = useNavigation();
+    const { navigate, setOptions } = useNavigation();
     // const { params } = useRoute();
     // const { regionID } = params;
     // const region = useSelector((state) =>
@@ -18,6 +18,19 @@ const List = () => {
     // );
     const allCustomers = useListCustomers();
     console.log("in list ::: ", allCustomers);
+
+    useLayoutEffect(() => {
+        console.log("Component mounted");
+        setOptions({
+            headerRight: () => (
+                <Button
+                    onPress={ () => navigate(routeNames.customers.NEW_CUSTOMER) }
+                    title="Add"
+                    disabled={ false }
+                />
+            ),
+        });
+    }, [ setOptions ]);
 
     return (
         <View style={ styles.container }>
@@ -28,7 +41,7 @@ const List = () => {
             ) : (
                 <>
                     <Text>{ "No customers yet!" }</Text>
-                    <Button
+                    <MyButton
                         text={ routeNames.customers.NEW_CUSTOMER }
                         onPress={ () => {
                             navigate(routeNames.customers.NEW_CUSTOMER);

@@ -18,15 +18,22 @@ const Home = () => {
 
                     <Button
                         onPress={ () => navigate(routeNames.customers.NEW_CUSTOMER) }
-                        text="Create Customer"
+                        text="Add Customer"
                         disabled={ false }
                     />
 
                     <Button
-                        onPress={ () => navigate(routeNames.customers.CUSTOMERS_LIST) }
+                        onPress={ () => navigate(routeNames.customers.CUSTOMERS) }
                         text="View Customers"
                         disabled={ false }
                     />
+
+                    <Button
+                        onPress={ () => navigate(routeNames.regions.REGIONS) }
+                        text="View Regions"
+                        disabled={ false }
+                    />
+
                     <Button
                         onPress={ () => {
                             // TODO: Clear data

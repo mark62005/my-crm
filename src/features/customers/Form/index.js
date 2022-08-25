@@ -5,7 +5,7 @@ import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import { ButtonGroup, ListItem, Icon, Button } from "@rneui/themed";
 import { useUpdateFields } from "../hooks";
-import { status, regions } from "../../../utilities/constants";
+import { status, regions, routeNames } from "../../../utilities/constants";
 import MyButton from "../../../components/Button";
 import stylesFn from "./styles";
 
@@ -37,7 +37,7 @@ const Form = ({ handleSubmit, currentStatus, customerID }) => {
 
     const onSubmit = () => {
         handleSubmit();
-        navigate("Home");
+        navigate(routeNames.customers.CUSTOMERS_LIST);
     };
 
     return (

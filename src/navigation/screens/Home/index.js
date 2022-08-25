@@ -23,7 +23,7 @@ const Home = () => {
                     />
 
                     <Button
-                        onPress={ () => navigate("Customers") }
+                        onPress={ () => navigate(routeNames.customers.CUSTOMERS_LIST) }
                         text="View Customers"
                         disabled={ false }
                     />

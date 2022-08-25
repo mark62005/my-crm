@@ -57,6 +57,8 @@ export const useEditCustomerStatus = () => {
     return useSelector((state) => state.customers.edit.status);
 };
 
-export const useListCustomers = (regionID) => {
-    return useSelector((state) => state.customers.list.customers);
+export const useListCustomers = (regionID = null) => {
+    if (regionID === null) {
+        return useSelector((state) => state.customers.list.customers);
+    }
 };

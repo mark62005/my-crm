@@ -10,6 +10,8 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 
 import Home from "./screens/Home";
 import New from "./screens/Customers/New";
+import CustomerList from "./screens/Customers/List";
+
 import RegionsList from "./screens/Regions/List";
 import { regions, routeNames, tabIconNames, titles } from "../utilities/constants";
 
@@ -19,10 +21,10 @@ const RegionStack = createNativeStackNavigator();
 
 const CustomerStackScreen = () => {
     return (
-        <CustomerStack.Navigator initialRouteName={ routeNames.customers.CUSTOMERS_LIST }>
+        <CustomerStack.Navigator>
             <CustomerStack.Screen
                 name={ routeNames.customers.CUSTOMERS_LIST }
-                component={ Home }
+                component={ CustomerList }
                 options={ { headerShown: false } }
             />
             <CustomerStack.Screen

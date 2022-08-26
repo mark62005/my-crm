@@ -26,8 +26,10 @@ export const useUpdateFields = (customerID = null) => {
 
 export const useNewCustomer = () => {
     const dispatch = useDispatch();
+    const status = useCreateCustomerStatus();
 
     return {
+        status,
         onSubmit: () => {
             console.log("Dispatching CREATE_CUSTOMER action");
             dispatch(actions.createCustomer());
@@ -68,4 +70,21 @@ export const useListCustomers = (regionID = null) => {
 
     const customers = useSelector((state) => state.customers.list.customers);
     return customers.filter((c) => c.region === regionID);
+};
+
+export const useAddSampleCustomers = () => {
+    const dispatch = useDispatch();
+    const status = useAddSampleCustomersStatus();
+
+    return {
+        status,
+        onSubmit: () => {
+            console.log("Dispatching ADD_SAMPLE_CUSTOMERS action");
+            dispatch(actions.addSampleCustomers());
+        },
+    };
+};
+
+export const useAddSampleCustomersStatus = () => {
+    return useSelector((state) => state.customers.list.status);
 };

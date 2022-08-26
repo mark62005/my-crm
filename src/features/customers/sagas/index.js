@@ -3,6 +3,7 @@ import { watchLoadCustomers } from "./load";
 import { watchCreateCustomer } from "./create";
 import { watchEditCustomer } from "./edit";
 import { watchClearCustomers } from "./clear";
+import { watchAddSampleCustomers } from "./add_sample_data";
 
 export default function* customer() {
     yield all([
@@ -10,5 +11,6 @@ export default function* customer() {
         watchCreateCustomer(),
         watchEditCustomer(),
         watchClearCustomers(),
+        watchAddSampleCustomers(),
     ]);
 }

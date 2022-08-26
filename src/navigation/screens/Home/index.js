@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { useDispatch } from "react-redux";
 import { SafeAreaView, ScrollView, View } from "react-native";
-import { clearCustomers } from "../../../features/customers/reducers";
+import { addSampleCustomers, clearCustomers } from "../../../features/customers/reducers";
 import Button from "../../../components/Button";
 import Title from "../../../components/Title";
 import { routeNames, titles } from "../../../utilities/constants";
@@ -34,6 +34,12 @@ const Home = () => {
                     <Button
                         onPress={ () => navigate(routeNames.regions.REGIONS) }
                         text="View Regions"
+                        disabled={ false }
+                    />
+
+                    <Button
+                        onPress={ () => dispatch(addSampleCustomers()) }
+                        text="Add Sample Data"
                         disabled={ false }
                     />
 

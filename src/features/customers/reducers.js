@@ -104,6 +104,17 @@ const reducers = {
         console.log("Clear CustomersResult Called");
         state.list.customers = initialState.list.customers;
     },
+    addSampleCustomers: (state) => {
+        state.list.status = REQUESTING;
+    },
+    addSampleCustomersResult: (state, { payload }) => {
+        state.list.status = SUCCESS;
+        state.list.customers = payload;
+    },
+    addSampleCustomersError: (state, { payload }) => {
+        state.list.status = ERROR;
+        state.error.message = payload;
+    }
 };
 
 const slice = createSlice({
@@ -127,6 +138,9 @@ export const {
     loadCustomersResult,
     clearCustomers,
     clearCustomersResult,
+    addSampleCustomers,
+    addSampleCustomersResult,
+    addSampleCustomersError,
 } = slice.actions;
 
 export default slice.reducer;

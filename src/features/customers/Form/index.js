@@ -155,7 +155,7 @@ const Form = ({ handleSubmit, currentStatus, customerID }) => {
 Form.propTypes = {
     handleSubmit: PropTypes.func.isRequired,
     currentStatus: PropTypes.string.isRequired,
-    customerID: PropTypes.number,
+    customerID: PropTypes.string,
 };
 
 export default Form;

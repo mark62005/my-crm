@@ -94,3 +94,6 @@ expo start
     ├── store
     └── utilities
 ```
+
+## Author
+Mark Wong is the author of this application.

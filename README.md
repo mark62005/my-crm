@@ -63,7 +63,10 @@ npm install
 expo start
 ```
 
+
 ## App Architecture
+
+```bash
 ├── .gitignore
 ├── App.js
 ├── app.json
@@ -85,4 +88,4 @@ expo start
     ├── navigation
     ├── store
     └── utilities
-
+```

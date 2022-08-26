@@ -8,7 +8,7 @@ My CRM (Customer Relationship Manager) is a moblie app that lets sales represent
 
 ### All Customers List (TODO)
 <p align="center">
-  <img width="250" src="https://user-images.githubusercontent.com/73043578/186795543-581ede30-1007-4125-a047-d199f2bb53e6.png" alt="All Customers List (When there's no customer)"/>
+  <img width="250" src="https://user-images.githubusercontent.com/73043578/186860316-77c49dbd-841f-499f-a225-90570e4a9210.png" alt="All Customers List (When there's no customer)"/>
 </p>
 
 ### All Customers List (When there's no customer)
@@ -16,9 +16,14 @@ My CRM (Customer Relationship Manager) is a moblie app that lets sales represent
   <img width="250" src="https://user-images.githubusercontent.com/73043578/186795543-581ede30-1007-4125-a047-d199f2bb53e6.png" alt="All Customers List (When there's no customer)"/>
 </p>
 
-### Customer Form
+### Add Customer Screen
 <p align="center">
   <img width="250" src="https://user-images.githubusercontent.com/73043578/186795758-f55e0706-25f4-414e-8c2a-c47f3b709a65.png" alt="Customer Form"/>
+</p>
+
+### Edit Customer Screen
+<p align="center">
+  <img width="250" src="https://user-images.githubusercontent.com/73043578/186860052-dfc513b9-16f8-4c9a-b837-51fa305231f7.png" alt="All Customers List (When there's no customer)"/>
 </p>
 
 ### Regions List
@@ -28,7 +33,7 @@ My CRM (Customer Relationship Manager) is a moblie app that lets sales represent
 
 ### Customers List By Region (TODO)
 <p align="center">
-  <img width="250" src="https://user-images.githubusercontent.com/73043578/186795919-88bb1932-8259-4aea-8a4c-a1bf6f68805f.png" alt="Regions List"/>
+  <img width="250" src="https://user-images.githubusercontent.com/73043578/186860511-7bbed8fa-d8d0-4eca-bd13-d5a7faab5129.png" alt="Regions List"/>
 </p>
 
 

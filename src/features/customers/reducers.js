@@ -2,12 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 import { regions, status } from "../../utilities/constants";
 
 const {
-    NORTH_AMERICA,
-    ASIA,
-    EUROPE,
-    REST_OF_WORLD,
-} = regions;
-const {
     PENDING,
     INPROGRESS,
     REQUESTING,
@@ -34,7 +28,7 @@ const initialState = {
             last_name: "",
             email: "",
             mobile: "",
-            region: NORTH_AMERICA.id,
+            region: regions.NORTH_AMERICA.id,
         },
     },
     error: {

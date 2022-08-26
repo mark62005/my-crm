@@ -15,7 +15,7 @@ import CustomerList from "./screens/Customers/List";
 import CustomerListByRegion from "./screens/Customers/ListByRegion";
 
 import RegionsList from "./screens/Regions/List";
-import { regions, routeNames, tabIconNames, titles } from "../utilities/constants";
+import { routeNames, tabIconNames, titles } from "../utilities/constants";
 
 const Tab = createBottomTabNavigator();
 const CustomerStack = createNativeStackNavigator();

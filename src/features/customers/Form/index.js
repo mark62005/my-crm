@@ -5,7 +5,7 @@ import { View, Text, TextInput, Button } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import { ListItem, Icon } from "@rneui/themed";
 import { useUpdateFields } from "../hooks";
-import { status, regions, routeNames } from "../../../utilities/constants";
+import { status, regions, routeNames, tabIconNames } from "../../../utilities/constants";
 import MyButton from "../../../components/Button";
 import stylesFn from "./styles";
 
@@ -14,13 +14,7 @@ const Form = ({ handleSubmit, currentStatus, customerID }) => {
 
     const styles = stylesFn();
     const { navigate, setOptions } = useNavigation();
-    const {
-        PENDING,
-        INPROGRESS,
-        REQUESTING,
-        SUCCESS,
-        ERROR
-    } = status;
+    const { PENDING, INPROGRESS } = status;
     const { fields, setFormField } = useUpdateFields(customerID);
 
     const {
@@ -112,17 +106,19 @@ const Form = ({ handleSubmit, currentStatus, customerID }) => {
                 <ListItem.Accordion
                     content={
                         <View style={ styles.accordian }>
-                            <Icon name="ios-earth" type="ionicon" size={ 30 } style={ { marginEnd: 10 } } />
+                            <Icon
+                                name={ tabIconNames.regions.UNFOCUSED }
+                                type="ionicon"
+                                size={ 30 }
+                                style={ { marginEnd: 10 } }
+                            />
                             <ListItem.Content style={ {} }>
                                 <ListItem.Title>Region</ListItem.Title>
                             </ListItem.Content>
                         </View>
                     }
                     isExpanded={ expanded }
-                    onPress={ () => {
-                        setExpanded(!expanded);
-                    } }
-
+                    onPress={ () => { setExpanded(!expanded); } }
                 >
                     <Picker
                         selectedValue={ region }

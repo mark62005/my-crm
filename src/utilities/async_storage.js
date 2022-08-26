@@ -10,7 +10,6 @@ export const set = async (key, value) => {
     } catch (e) {
         return { error: "Failed to save to AsyncStorage" };
     }
-
 };
 
 // load

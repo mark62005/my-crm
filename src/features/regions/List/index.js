@@ -9,10 +9,7 @@ import stylesFn from "./styles";
 const List = () => {
     const styles = stylesFn();
     const { navigate } = useNavigation();
-
     const regions = useListRegions();
-    console.log(regions);
-
     console.log("in list ::: ", regions);
 
     return (

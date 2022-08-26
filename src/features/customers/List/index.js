@@ -1,23 +1,16 @@
 import React, { useLayoutEffect } from "react";
 import { View, Text, Button } from "react-native";
-import { useNavigation, useRoute } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 import { useSelector } from "react-redux";
 import { useListCustomers } from "../hooks";
 import { routeNames } from "../../../utilities/constants";
-import Row from "./row";
 import Section from "./section";
-import Title from "../../../components/Title";
 import MyButton from "../../../components/Button";
 import stylesFn from "./styles";
 
 const List = () => {
     const styles = stylesFn();
     const { navigate, setOptions } = useNavigation();
-    // const { params } = useRoute();
-    // const { regionID } = params;
-    // const region = useSelector((state) =>
-    //     state.customers.list.regions.find((r) => r.id === regionID)
-    // );
     const regions = useSelector((state) => state.regions.list.regions);
     const allCustomers = useListCustomers();
     console.log("in list ::: ", allCustomers);

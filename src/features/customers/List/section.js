@@ -1,8 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { useSelector } from "react-redux";
 import stylesFn from "./styles";
 import { routeNames } from "../../../utilities/constants";
 import Title from "../../../components/Title";
@@ -12,16 +11,6 @@ import Button from "../../../components/Button";
 const Section = ({ customersByRegion, region }) => {
     const styles = stylesFn();
     const { navigate } = useNavigation();
-    // const region = useSelector((state) => {
-    //     const regions = state.regions.list.regions;
-    //     return Object.values(regions).find((r) => r.id === customer.region)[ "name" ];
-    // });
-
-    const handlePress = () => {
-        // TODO: Edit Customer
-        console.log("Edit Customer Button tapped.");
-        navigate(routeNames.customers.EDIT_CUSTOMER, { customerID: customer.id });
-    };
 
     return (
         <View style={ styles.section }>
@@ -47,7 +36,6 @@ const Section = ({ customersByRegion, region }) => {
                     )
             }
         </View>
-
     );
 };
 

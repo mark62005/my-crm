@@ -1,12 +1,10 @@
 import React, { useLayoutEffect } from "react";
 import { View, Text, Button } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import { useSelector } from "react-redux";
 import { useListCustomers } from "../hooks";
 import { useListRegions } from "../../regions/hooks";
 import { routeNames } from "../../../utilities/constants";
-import Row from "./row";
-import Title from "../../../components/Title";
+import Row from "../List/row";
 import MyButton from "../../../components/Button";
 import stylesFn from "./styles";
 

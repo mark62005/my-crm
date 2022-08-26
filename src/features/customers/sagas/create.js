@@ -23,7 +23,10 @@ export function* takeCreateCustomer() {
         // pretend call to API
         yield delay(500);
 
-        const result = [ customer, ...customers ];
+        let result = [ ...customers ];
+        if (customers.filter((c) => c.id === customer.id).length === 0) {
+            result = [ customer, ...customers ];
+        }
 
         yield set(keys.CUSTOMERS, result);
 

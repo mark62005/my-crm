@@ -13,7 +13,11 @@ export function* takeLoadCustomers() {
 
         yield delay(500);
 
-        yield put(actions.loadCustomersResult(customers));
+        if (customers === null) {
+            yield put(actions.loadCustomersResult([]));
+        } else {
+            yield put(actions.loadCustomersResult(customers));
+        }
     } catch (error) {
         yield put(actions.loadCustomersResult([]));
     }

@@ -17,6 +17,7 @@ const New = () => {
     //     });
     // }, [ navigation ]);
 
+    console.log("LENGTH::: ", [].length);
 
     return <Form handleSubmit={ onSubmit } currentStatus={ status } />;
 };

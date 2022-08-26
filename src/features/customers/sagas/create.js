@@ -1,6 +1,7 @@
 import { put, select, takeLatest, delay } from "redux-saga/effects";
 import { set } from "../../../utilities/async_storage";
 import { keys } from "../../../utilities/constants";
+import { generateUID } from "../../../utilities/helpers";
 import * as actions from "../reducers";
 
 export function* watchCreateCustomer() {
@@ -15,7 +16,7 @@ export function* takeCreateCustomer() {
         const customers = yield select((state) => state.customers.list.customers);
 
         const customer = {
-            id: customers.length + 1,
+            id: generateUID(),
             ...fields,
         };
 
